@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: application/javascript');
 $player_name = $_GET["name"];
 
 try {
@@ -21,7 +22,7 @@ if ($data->rowCount() !== 0) {
 		$ftp = $row[5];
 		$ppg = $row[6];
 	}
-	echo json_encode($row);
+	echo "callback(".json_encode($row).");";
 } else {
 	echo "No basketball player(s) found with search query";
 }
